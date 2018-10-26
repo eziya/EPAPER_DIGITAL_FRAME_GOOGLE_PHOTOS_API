@@ -92,7 +92,7 @@ def main():
             file_full_path = os.path.join("images", bmpname)
             if not os.path.isfile(file_full_path):
                 wget.download(baseUrl, "./images/" + filename)
-                command = "convert images/{0} -background black -gravity center -colorspace Gray -auto-level -resize x384 -extent 640x384 images/{1}".format(
+                command = "convert images/{0} -background black -gravity center -colorspace Gray -separate -average -resize x384 -extent 640x384 images/{1}".format(
                     filename, bmpname)
 
                 os.system(command)
